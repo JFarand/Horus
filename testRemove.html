@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>Remove Test</title>
+
+</head>
+<body>
+<button id="testMe">You Can Test Me Now</button>
+<script>
+    var testMe = document.getElementById("testMe");
+
+    testMe.addEventListener("click", function (){
+        console.log("Yep, you clicked it.");
+        testMe.remove();
+    } );
+</script>
+</body>
+</html>
