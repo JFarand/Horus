@@ -1,11 +1,13 @@
 <style>
+@media screen and (max-width: 480px) {
+	.radio-wrap.half {
+		width: 100% !important;
+	}
+}
 header.hel-header {
 	display: block;
 	position: relative;
-	width: 100vw;
-	padding-bottom: 12px;
-	padding-left: 12px;
-	padding-right: 12px;
+	width: 100%;
 	background-color: seagreen;
 	color: #f2f2f2;
 }
@@ -39,9 +41,9 @@ header.hel-header section div.OWLTalk {
 }
 
 header.hel-header section div.donateForm {
-	flex-grow:1;
+	flex-grow:0;
 	flex-shrink: 0;
-	flex-basis: 600px;
+	flex-basis: 84%;
 	margin: 0 auto;
 	flex-direction: column;
 	justify-content: center;
@@ -93,7 +95,7 @@ header.hel-header section div.donateForm__top {
 
 header.hel-header section div.donateForm div.donateForm__top {
 	display: table;
-	width: 600px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 6px;
@@ -125,7 +127,7 @@ header.hel-header section div.donateForm div.donateForm__top div.donateForm__top
 /*radio button specific code done*/
 
 .donateForm__Name {
-	width: 600px;
+	width: 100%;
 	margin: 0 auto;
 	display: block;
 
@@ -157,7 +159,7 @@ header.hel-header section div.donateForm__amount {
 
 header.hel-header section div.donateForm div.donateForm__amount {
 	display: table;
-	width: 600px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 6px;
