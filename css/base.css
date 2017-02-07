@@ -1,0 +1,60 @@
+html, body {
+    display: block;
+    position: relative;
+    font-size: 18px;
+    color: #333333;
+    font-family: 'Archer Book';
+    background-color: #f2f2f2;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    min-width: 100%;
+
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #006341;
+}
+
+a:hover {
+    color: #f2f2f2;
+    background-color: #006341;
+}
+
+dt {
+    font-weight: bold;
+    font-family:'EurostileLTPro-BoldEx2';
+    font-size: 18px;
+    margin-bottom: 12px !important;
+    text-transform: uppercase;
+}
+dd {
+    font-family:'Archer Book';
+    font-size: 15px;
+    background:none no-repeat left top;
+    padding-left: 50px !important;
+
+}
+
+::selection {
+    background-color: #999999;
+    color: #006341;
+}
+
+
+div.video_full {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #2e2b2b;
+}
+
+section.entry-content img.wp-post-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}

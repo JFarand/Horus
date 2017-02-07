@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        width: 100%;
+        background: rgba(0,0,0, .03);
+        color: rgba(0,0,0, .6);
+    }
+
+    main {
+        position: relative;
+        width: 75%;
+        margin: 0 auto;
+        padding: 12px;
+        line-height: 1.5;
+        font-family: Georgia;
+        font-weight: 400;
+        font-size: 18px;
+        background-color: rgba(255,255,255, .6);
+    }
+</style>
+</head>
+<body>
+<header id="main">
+    <span id="logo"></span>
+</header>
+<main>
+    <section id="thatPost">
+
+    </section>
+    <section id="textBox">
+        <textarea name="content" placeholder="Content"></textarea>
+        <button id="quick-add-button">Submit</button>
+
+
+    </section>
+    <section id="comments">
+
+    </section>
+</main>
+    <script>
+        window.onload = function(){
+            var postsContainer = document.getElementById("thatPost"),
+                commentsContainer = document.getElementById("comments");
+
+            var pullAPost = new XMLHttpRequest();
+            pullAPost.open('GET', 'http://www.owlasylum.net/wp-json/wp/v2/posts/1823');
+            pullAPost.onload = function(){
+                if(pullAPost.status >= 200 && pullAPost.status < 400){
+                    var dataPost = JSON.parse(pullAPost.responseText);
+                    createHTML(dataPost,postsContainer);
+                } else {
+                    console.log("We connected to the server, but it return an error.");
+                }
+            };
+
+            pullAPost.onerror = function(){
+                console.log("Connection error");
+            };
+
+            pullAPost.send();
+            //end pullAPost
+
+
+            var pullComments = new XMLHttpRequest();
+            pullComments.open('GET', 'http://www.owlasylum.net/wp-json/wp/v2/comments?post=1823');
+            pullComments.onload = function(){
+                if(pullComments.status >= 200 && pullComments.status < 400){
+                    var dataComments = JSON.parse(pullComments.responseText);
+                    createCommentsHTML(dataComments,commentsContainer);
+                } else {
+                    console.log("We connected to the server, but it return an error.");
+                }
+            };
+
+            pullComments.onerror = function(){
+                console.log("Connection error");
+            };
+
+            pullComments.send();
+
+
+            function createHTML(pulledData, locationDump) {
+
+                locationDump.innerHTML = pulledData.content.rendered;
+            }
+
+
+            function createCommentsHTML(pulledData, locationDump) {
+                var ourHTMLString = '';
+                for (i=0; i < pulledData.length; i++){
+                    ourHTMLString += pulledData[i].content.rendered;
+
+                }
+                locationDump.innerHTML = ourHTMLString;
+            }
+
+
+
+        };
+
+    </script>
+</body>
+</html>
