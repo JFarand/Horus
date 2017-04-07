@@ -71,6 +71,24 @@
     }
 }
 </style>
+<?php get_template_part('splash', 'tv'); ?>
+<script>
+window.onload = () => {
+  setTimeout(() => {
+    var splashDiv = document.getElementById('splash_body__tv');
+
+    //fade div out slowly
+    splashDiv.style.transition = "opacity 1.5s"
+    splashDiv.style.opacity = 0;
+
+    setTimeout(() => {
+        splashDiv.style.display = "none";
+    }, 1500);
+
+  }, 1000)
+};
+
+</script>
 <?php get_template_part('hel','header'); ?>
 <header id="header" role="banner">
 

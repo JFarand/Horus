@@ -13,3 +13,10 @@
     As you already know, OWL's Asylum is 100% funded by readers like you. In order to help cut hosting and research costs down a little, please donate a few bucks, or more, but definitely, every dollar goes a long way. Just as long as this essay you just read!!!
 </p>
 <span class="single_donatebtn"><?php get_template_part('donatebtn'); ?></span>
+<script>
+var sd = document.querySelector('span.single_donatebtn');
+
+sd.onclick = function(){
+  window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8WX2CXNLHJYG";
+}
+</script>

@@ -222,12 +222,12 @@ header.hel-header section div.donateForm div.donateForm__amount > div[class*='_a
 						</div>
 					</fieldset>
 	      </div>
-	      <div class="donateForm__Name">
+	      <!-- <div class="donateForm__Name">
 	        <label for="donateFormFirstName">First Name</label>
 	        <input type="text" name="donateFormFirstName">
 					<label for="donateFormLastName">Last Name</label>
 	        <input type="text" name="donateFormLastName">
-	      </div>
+	      </div> -->
 	      <div class="donateForm__submitBank">
 	        <div class="donateForm__submitBank__paypal">
 						<?php require 'paypal.php'; ?>
@@ -240,16 +240,15 @@ header.hel-header section div.donateForm div.donateForm__amount > div[class*='_a
 <script>
 	var paypalBtn = document.querySelector('.donateForm__submitBank__paypal'),
 			valueFromFrequencyForm = document.forms['helForm']['donationFrequency'].value,
-			valueFromAmountForm =  document.forms['helForm']['donationAmount'].value,
-			firstName = document.forms['helForm']['donationFormFirstName'].value,
-			lastName = document.forms['helForm']['donationFormLastName'].value;
+			valueFromAmountForm =  document.forms['helForm']['donationAmount'].value;
+
 
 	if(valueFromFrequencyForm === "OneTime")var recurring = false;
 
 	paypalBtn.onclick = ()=>{
 		//console.log("How often: "+valueFromFrequencyForm + " How much: "+valueFromAmountForm+" Is Recurring: "+recurring);
 	  // window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K8WX2CXNLHJYG&no_note=1&amount="+valueFromAmountForm+"&a3="+valueFromAmountForm+"&p3=24&t3=M&src="+(recurring ? "1":"0");
-		  window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&no_note=1&amount="+valueFromAmountForm+"&a3="+valueFromAmountForm+"&p3=24&t3=M&src="+(recurring ? "1":"0")+"&sra=1&bn=OwlAsylum_Donate_WPS_US&business=jfarand@jfarand.com&return=https://www.owlasylum.net&item_name=donations&first_name="+firstName+"&last_name="+lastName;
+		  window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&no_note=1&amount="+valueFromAmountForm+"&a3="+valueFromAmountForm+"&p3=24&t3=M&src="+(recurring ? "1":"0")+"&sra=1&bn=OwlAsylum_Donate_WPS_US&business=jfarand@jfarand.com&return=https://www.owlasylum.net&item_name=donations";
 
 	}
 </script>
